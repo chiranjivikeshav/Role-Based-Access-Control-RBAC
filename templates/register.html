@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Create an Account</h2>
+    <form id="registration-form" method="post">
+        {% csrf_token %}
+        
+        <!-- User Information Section -->
+        <div class="user-info-section">
+            <!-- Username -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+        </div>
+
+        <!-- Password and Role Section -->
+        <div class="password-role-section">
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password1" required placeholder="Enter password">
+            </div>
+            <!-- Confirm Password -->
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="password2" required placeholder="Confirm password">
+            </div>
+            <!-- Password Hints -->
+            <ul id="password-hints">
+                <li id="length-hint">At least 8 characters</li>
+                <li id="uppercase-hint">At least one uppercase letter</li>
+                <li id="lowercase-hint">At least one lowercase letter</li>
+                <li id="number-hint">At least one number</li>
+            </ul>
+            <!-- Error Message -->
+            <p id="password-match-error" class="error-message"></p>
+
+            <!-- Role Selection -->
+            <div class="form-group">
+                <label for="role">Select Role:</label>
+                <select id="role" name="role" required>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                    <option value="moderator">Moderator</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Submit Button -->
+        <button type="submit" id="register-button" disabled>Register</button>
+    </form>
+    <p class="redirect-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+<script src="{% static 'register.js' %}"></script>
+{% endblock %}

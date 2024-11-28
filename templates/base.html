@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RBAC System</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Logo Section -->
+        <p class="logo">RBAC System</p>
+
+        <!-- Navbar Links -->
+        <div class="nav-links">
+            {% if user.is_authenticated %}
+                <!-- If the user is logged in, show Logout button -->
+                <a href="{% url 'logout' %}" class="active">Logout</a>
+            {% else %}
+                <!-- If the user is not logged in, show Login button -->
+                <a href="{% url 'login' %}" class="active">Login</a>
+            {% endif %}
+        </div>
+
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script>
+        // Toggle mobile menu visibility
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

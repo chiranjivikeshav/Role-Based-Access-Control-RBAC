@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Login</h2>
+    <form id="login-form" method="post">
+        {% csrf_token %}
+        <!-- Username -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter password">
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" id="login-button">Login</button>
+    </form>
+    <p class="redirect-text">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+</div>
+<script src="{% static 'login.js' %}"></script>
+{% endblock %}
