@@ -29,7 +29,7 @@ Follow the steps below to set up the project locally.
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/rbac-system.git
+git https://github.com/chiranjivikeshav/Role-Based-Access-Control-RBAC.git
 cd rbac-system
 ```
 
@@ -130,7 +130,7 @@ The frontend is styled with CSS for a clean and responsive layout. Key elements 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-name`).
 3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
+4. Commit your changes (`git commit -m 'Add new feature'`).
 5. Push to the branch (`git push origin feature-name`).
 6. Create a new Pull Request.
 
